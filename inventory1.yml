@@ -1,0 +1,21 @@
+---
+all:
+  hosts:
+    ubuntu:
+      ansible_user: ubuntu
+      ansible_host: 192.168.122.54
+      ansibles_python_interperter: "/usr/bin/python3"
+    centos:
+      ansible_user: centos
+      ansible_host: 192.168.122.231
+  children:
+    allhosts:
+      hosts:
+        centos:
+        ubuntu:
+    network:
+      hosts:
+       centos:
+    sysadmins:
+      hosts:
+        ubuntu:

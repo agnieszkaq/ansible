@@ -1,0 +1,17 @@
+--- 
+
+- hosts: centos
+  become: yes
+  tasks: 
+    - name: Install htpd server
+      yum: 
+        name: httpd
+        state: latest 
+      notify: httpd service restart
+
+  handlers:
+    - name: httpd service restart
+      service:
+        name: httpd
+        state: restarted
+      listen: httpd service

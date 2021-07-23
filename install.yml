@@ -1,0 +1,49 @@
+---
+- name: INSTALL ON HOST UBUNTU
+  hosts: ubuntu
+  become: yes
+  #SETUP MODULE 
+  gather_facts: yes
+  vars:
+    serwer_www_ubuntu: apache2
+
+  tasks:
+    - name: Show IP
+      debug:
+        msg: "Your host is {{ ansible_host }} IP {{ ansible_all_ipv4_addresses }}" 
+  # Install python apt
+    - name: Install python-apt
+      apt:
+       name: python-apt
+       state: latest
+
+  # Install python3-apt
+    - name:  Install python3-apt
+      apt: 
+       name: python3-apt
+       state: latest
+
+    - name: Zainstaluj apache2  w najnowszej wersji
+      apt: 
+       name: "{{ serwer_www_ubuntu }}"
+       state: latest
+
+- name: INSTALL ON HOST CENTOS
+  hosts: videopoint2
+  become: true
+  gather_facts: yes
+  vars: 
+    serwer_www_centos: httpd
+
+  tasks:
+   - name: Show IP
+     debug:
+       msg: "Your host is {{ ansible_host }}  IP {{ ansible_all_ipv4_addresses }}" 
+# Install apache httpd (www server on centos)
+   - name: Install apache httpd (www server on centos)
+     yum:
+      name: "{{ serwer_www_centos }}"
+      state: latest
+
+
+  

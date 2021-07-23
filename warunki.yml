@@ -1,0 +1,13 @@
+---
+
+- hosts: ubuntu
+  vars:
+    target_file: /home/ubuntu/hostname
+  tasks:
+    - name: File on ubuntu
+      stat:
+        path: "{{ target_file }}"
+      register: hostname
+    - name: Rename hostname file when found
+      command: mv "{{ target_file }}" /home/ubuntu/other_file
+      when: hostname.stat.exists

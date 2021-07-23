@@ -1,0 +1,14 @@
+ubuntu ansible_host=ubuntu@192.168.122.54 ansible_python_interpreter=/usr/bin/python3
+centos ansible_host=centos@192.168.122.231
+
+[allhosts]
+ubuntu
+centos
+
+[py3hosts]
+ubuntu
+centos
+
+#[py3hosts:vars] 
+#ansible_python_interpreter=/usr/bin/python3
+

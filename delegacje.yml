@@ -1,0 +1,16 @@
+---
+  
+  - hosts: centos
+    tasks: 
+      - name: Run sleep.sh
+        command: /home/ubuntu/sleep.sh
+        async: 60
+        poll: 0
+        delegate_to: ubuntu
+        run_once: yes
+
+      - name: install httpd
+        package:
+          name: httpd
+          state: latest
+        become: yes

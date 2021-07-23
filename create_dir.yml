@@ -1,0 +1,11 @@
+---
+- name: CREATE DIR
+  hosts: allhosts
+  become: yes
+
+  tasks:
+    - name: Creates directory
+      file:
+        path: /home/ansible
+        state: directory
+        mode: '777'

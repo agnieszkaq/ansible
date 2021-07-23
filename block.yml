@@ -1,0 +1,19 @@
+---
+
+- hosts: ubuntu
+  become: yes
+  vars:
+    target_service: apache2
+  tasks:
+    - name: Install Softwere
+      block:
+        - service: 
+            name: "{{ target_service }}"
+            state: started
+          register: service_status
+      rescue:
+        - debug:
+            var: service_status
+      always:
+        - debug:
+            msg: "Trying to service run"

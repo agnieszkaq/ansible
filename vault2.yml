@@ -1,0 +1,12 @@
+---
+
+- hosts: ubuntu
+  vars_files:
+    ./vault.yml
+  tasks:
+    - name: example
+      lineinfile:
+        path: /home/ubuntu/open.txt
+        create: yes
+        line: "{{ pass }}"
+      no_log: true

@@ -1,0 +1,15 @@
+---
+
+working_dir: /home/ubuntu
+
+service_list:
+  - httpd
+  - nfs
+  - mariadb
+
+shared_paths:
+  nfs: /mnt/nfs
+  cifs: /mnt/cifs
+  iscsi: /mnt/iscsi
+
+

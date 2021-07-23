@@ -1,0 +1,14 @@
+---
+
+- hosts: ubuntu
+  become: yes 
+  tasks:
+    - name: install software from list
+      apt:
+        name: "{{ item }}"
+        state: latest
+      loop:
+        - htop
+        - vim
+        - elinks
+        

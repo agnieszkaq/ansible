@@ -1,0 +1,29 @@
+---
+
+- hosts: ubuntu
+  become: yes
+
+  tasks: 
+    - name: install elinks
+      apt: 
+        name: elinks
+        state: latest
+      tags: 
+        - software
+        
+    - name: Ass line to text file 
+      lineinfile: 
+        path: /home/ubuntu/tag-text.txt
+        create: yes
+        line: "Dodana linia z playbook4.yml"
+      tags:
+        - files
+        - issue
+
+    - name: Copy tag file
+      copy:
+        src: ./issue
+        dest: /home/ubuntu
+      tags:
+        - config
+        - copy
