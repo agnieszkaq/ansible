@@ -1,0 +1,16 @@
+---
+
+- name: Install httpd on centos
+  yum: 
+    name: httpd 
+    state: latest
+  notify: restart httpd
+  when: ansible_distribution == "CentOS"
+
+
+- name: Install apache2 on ubuntu
+  apt: 
+    name: apache2 
+    state: latest
+  notify: disable apache2
+  when: ansible_distribution == "Ubuntu"

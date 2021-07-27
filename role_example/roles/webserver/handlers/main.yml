@@ -1,0 +1,12 @@
+---
+
+- name: restart httpd
+  service:
+    name: httpd
+    state: started
+    eanabled: yes
+
+- name: disable apache2
+  service:
+    name: apache2
+    state: stopped
