@@ -1,7 +1,7 @@
 ---
-- name: INSTALL ON HOST CENTOS
-  hosts: centos
-  become: true
+- name: Show hosts IP
+  hosts: allhosts
+  become: yes
   gather_facts: yes
   vars: 
     serwer_www_centos: httpd
