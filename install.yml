@@ -1,5 +1,4 @@
 ---
-
 - name: INSTALL ON HOST CENTOS
   hosts: centos
   become: true
